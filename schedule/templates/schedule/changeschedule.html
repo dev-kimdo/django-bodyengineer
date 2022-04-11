@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'schedule/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="change_box">
+  <h2 class="day" >{{day}}</h2>
+  <!-- <form method="GET" action="/schedule/create" enctype="multipart/form-data">
+    <input type="radio" id="today" name="today" value="{{day}}">
+    <label for="8t">{{day}}</label>  
+    <input type="radio" id="username" name="username" value="yuri">
+    <label for="8t">최유리</label>   -->
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>
+            시간
+          </th>
+          <th>
+            회원명
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            7시
+          </td>
+          <td>
+            최유리
+          </td>
+        </tr>
+        <tr>
+          <td>
+            8시
+          </td>
+          <td>
+            <input type="radio" id="8t" name="chk" value="8">
+            <label for="8t">선택가능</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            9시
+          </td>
+          <td>
+            김도현
+          </td>
+        </tr>
+        <tr>
+          <td>
+            10시
+          </td>
+          <td>
+            <input type="radio" id="10t" name="chk" value="10">
+            <label for="10t">선택가능</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            11시
+          </td>
+          <td>
+            이재호
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="btn">
+      <input class="change_btn" type="submit" value="수정완료">
+    </div>
+  
+  </form>  
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'video/style.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="video_box">
+        <div class="header">
+            <h1> 나의 운동 영상 리스트 </h1>
+            <!-- <a href="'video/new" class="video_btn">New Video</a> -->
+        </div>
+        <div class="list">
+            {% for video in video_list %}
+            <li>
+                <a href="/video/{{video.id}} "><h4> {{video.title}} </h4>
+                </a>
+            </li>    
+            
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

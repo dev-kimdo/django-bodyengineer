@@ -1,0 +1,189 @@
+/* 이미지슬라이드쇼 */
+#slideShow {
+    clear: both;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+	z-index:-1;
+    /* border: 1px solid red; */
+}
+#slides {
+    position: absolute;
+}
+#slides > img {
+    width: 100%;
+    float: left;
+}
+
+/* 콘텐츠 영역*/
+#contents {
+    /* width: 100%; */
+    height: 300px;
+    margin-top: 20px;
+    /* border: 1px solid red; */
+}
+
+
+/* 텝메뉴 */
+#tabMenu {
+    float: left;
+    width: 300px;
+    height: 100%;
+    margin-top: 10px;
+}
+#tabMenu input[type="radio"] {
+    display: none;
+}
+#tabMenu label {
+    display: inline-block;
+    margin: 0 0;
+    padding: 15px 25px;
+    font-weight:  600;
+    text-align: center;
+    color: #aaa;
+    border: 1px solid transparent;
+}
+#tabMenu label:hover {
+    color: #222;
+    cursor: pointer;
+}
+#tabMenu input:checked + label {
+    color: #b00;
+    border: 1px solid #ddd;
+    background-color: #eee;
+}
+.tabContent {
+    display: none;
+    padding: 20px 0 0;
+    border-top: 1px solid #ddd;
+}
+.tabContent h2 {
+    display: none;
+}
+#notice ul {
+    list-style: disc;
+    margin-left: 30px;
+}
+#notice ul li {
+    font-size: 16px;
+    line-height: 2.5;
+}
+#Map ul li {
+    display: inline;
+}
+
+#tab1:checked ~ #notice,
+#tab2:checked ~ #Map {
+    display: block;
+}
+
+/* 퀵 링크 */
+#links {
+    float: right;
+    width: 600px;
+    height: 100%;
+    margin-top: 15px;
+    /* border: 1px solid red; */
+}
+#links ul {
+    padding: 0;
+    overflow: hidden;
+}
+#links ul li {
+    float: left;
+    width: 33%;
+    text-align: center;
+    margin: 10px 0;
+}
+#links ul li a span {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    border: 1px solid #ddd;
+    line-height: 150px;
+}
+#quick-icon1 {
+    background-image: url('images/icon-1.jpg');
+}
+#quick-icon2 {
+    background-image: url('images/icon-2.jpg');
+}
+#quick-icon3 {
+    background-image: url('images/icon-3.jpg');
+}
+
+#links ul li a p {
+    margin-top: 15px;
+    font-weight: 600;
+    color: #666;
+}
+
+/* 어바웃 페이지 관련 */
+
+/* .about_container {
+    height: 2000px\;
+} */
+
+.about_container img {
+    width: 100px;
+    height: 100px;
+    margin-right:50px;
+    border:1px solid #ccc;
+    box-shadow: 2px 2px 5px #ccc;
+}
+
+.about_container img:first-child {
+    border: 2px solid red ;
+}
+
+.about_contents {
+    width:1000px;
+    margin:20px auto;  
+}
+
+main > section {
+    margin-top:60px;  
+}
+
+main h2 {    
+    font-size:1.5em;
+    line-height: 2.5;
+}
+
+main div {
+    margin-top:20px;
+}
+
+.detail p {
+    line-height: 2.0;
+    color:#222;
+}
+
+.detail > img {
+    width: 200px;
+    height: 150px;
+    float:left; 
+    margin-right:50px;
+    border-radius:20px;
+}
+
+.schedule h4 {
+    font-size:1.2em;
+}
+
+
+.schedule ul {
+    list-style: none;
+}
+
+.schedule ul li { 
+    line-height: 2;
+}
+
+.map-title{
+    font-size: 30px;
+    margin-left: 14%;
+}

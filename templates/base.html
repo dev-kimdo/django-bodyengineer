@@ -1,0 +1,120 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://kit.fontawesome.com/69318be22f.js" crossorigin="anonymous"></script>
+    {% block style %}
+    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Engineer</title>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <header>
+                <div id="logo">
+                    <a href="{% url 'sites:main' %}"> <img src="{% static 'images/바디엔지니어 로고.png' %}" alt="logo"></a>
+                </div>
+                <nav class="menu-1">
+                    <ul>
+                        <li>
+                            <a href="{% url 'sites:main' %}">Home</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'sites:about' %} ">About</a>
+                            <!-- <ul>
+                                <li>
+                                    <a href="#">Test</a>
+                                    <ul>
+                                        <li><a href="#">체형분석</a></li>
+                                        <li><a href="#">OverHeadSquat</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                <a href="#">Program</a>
+                                </li>
+                            </ul> -->
+                        </li>
+                        <li>
+                            <a href="#">MyPage</a>
+                            <ul>
+                                <li>
+                                <a href="{% url 'schedule:schedule' %}">Schedule</a>
+                                </li>
+                                <li>
+                                <a href="{% url 'video:list' %} ">MyExercise</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                        <a href="{% url 'posts:index' %}">Notice</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'sites:map' %}">Map</a>
+                            </li>
+                        <li>
+                            {% if user.is_authenticated %}
+                                {% if user.is_superuser or user.is_staff %}
+                                <li> 
+                                    <a href="/admin/" class="text-decoration-none">Admin</a>
+                                </li>
+                                {% endif %}
+                                <form method="POST" action="{% url 'accounts:logout' %}">
+                                    {% csrf_token %}
+                                    <li>
+                                        {{user.get_username}} 님 환영합니다.
+                                        <button type="submit" class="btn btn-primary">LOG OUT</button>
+                                    </li>
+                                    
+                                </form>
+                            {% else %}
+                            <li>
+                                <a href="{% url 'accounts:login' %}" class="text-decoration-none">Log In</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'accounts:sign_up' %} " class="text-decoration-none">Sign Up</a>
+                            </li>
+    
+    
+                            {% endif %}
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+    
+            {% block content %}
+    
+            {% endblock %}
+        </div>
+        <footer>    
+            <div id="bottomMenu">
+                <ul>
+                    <li><a href="#">센터 소개</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">회원가입약관</a></li>
+                    <li><a href="#">사이트맵</a></li>
+                </ul>
+                <div id="sns">
+                    <ul>
+                        <li><a href="#"><img src="{% static 'images/sns-1.png' %}"></a></li>
+                        <li><a href="#"><img src="{% static 'images/sns-2.png' %}"></a></li>
+                        <li><a href="#"><img src="{% static 'images/sns-3.png' %}"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="center">
+                <p>서울시 서초구 강남대로305 현대렉시온 B109호 (대표전화)070-4215-0901</p> 
+            </div>     
+        </footer>  
+    </div>
+
+    
+
+{% block jslink %}
+{% endblock %}
+</body>
+</html>

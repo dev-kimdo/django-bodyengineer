@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'video/style.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="video_box">
+        <div class="header">
+            <h1> 영상 올리기 </h1>
+            <a href="'video/new" class="video_btn">New Video</a>
+        </div>
+        <div class="row">
+            <div> 
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="group">
+                        <label for="title">제 목</label>
+                        <input type="text" name="title" class="form-control" id="title" placeholder="제목">
+                    </div>
+                    <div class="group">
+                        <label for="video_key"> Video Key</label>
+                        <input type="text" name="video_key" class="form-control" id="video_key" placeholder="Video Key">
+                    </div>
+                    <button type="submit" class="new_video_btn">Submit</button>          
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

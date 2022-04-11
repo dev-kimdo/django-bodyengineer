@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'sites/style.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="about_container">    
+
+    <main class="about_contents">
+      <section id="test">
+        <h2>검사와 측정</h2>                  
+        <div class="detail"> 
+          <img src="{% static 'sites/images/test.jpeg' %}" alt="">                           
+          <b><p>질문지 작성</p></b>   
+          <b><p>기초 체력 측정</p></b>  
+          <b><p>Core Test</p></b>  
+          <b><p>OverHeadSquat Test</p></b>         
+        </div>       
+      </section>
+      <section id="estimate">
+        <h2>분석 및 평가</h2>
+        <div class="detail">          
+          <img src="{% static 'sites/images/analysis.jpeg' %}">
+          <b><p>체형 분석</p></b>          
+          <b><p>질문지 분석</p></b>   
+          <b><p>측정 평가 분석</p></b>
+          <b><p>체성분 분석(Inbody)</p></b>           
+        </div>
+      </section>
+      <section id="plan">
+        <h2>운동 계획</h2>
+        <div class="detail">          
+          <img src="{% static 'sites/images/weightlifting.png' %}" alt="">
+          <b><p>회원별 체형 밸런스 트레이닝</p></b>
+          <b><p>기능성운동 향상 프로그램</p></b>       
+          <b><p>다이어트 프로그램</p></b>  
+      </section>
+      <section id="activity">
+        <h2>체형 분석</h2>                  
+        <div class="detail"> 
+            <img src="{% static 'sites/images/inbody.png' %}" alt="">                            
+            <b><p>바디엔지니어는</p></b>          
+            <p>머리 위치, 어깨 높낮이, 경갑골의 위치, 척추의 만곡, 골반 경사와 높낮이, 등을 분석하여 체형 밸런스를 잡아주는 트레이닝을 진행합니다. </p>        
+        </div>
+      </section>
+      <section id="squat">
+        <h2>OverHeadSquat</h2>
+        <div class="detail">          
+            <img src="{% static 'sites/images/overheadsquat.png' %}" alt="">
+            <b><p>오버헤드스쿼트 란?</p></b>          
+            <p>자세를 수행함과 동시에 나오는 자세의 흐트러짐을 동영상으로 촬영 분석 합니다.</p>
+            <p>과사용되는 근육군과 저사용되는 근육군을 확인하여 과사용 근육군은 덜쓰게 하고 저사용 근육군은 더 사용하게하는 트레이닝을 계획 할 수 있습니다.</p>
+            <p>일정시간 교정 트레이닝을 진행 후 before & after 로 변경된 자세를 분석할 수 있습니다.</p>
+        </div>
+    </section>
+    <section id="program">
+      <h2>고객님의 체형분석, 코어테스트 등을 실행 분석하여 운동 계획을 컨설팅 해드립니다.</h2>
+      <div class="detail">          
+          <img src="{% static 'sites/images/program.png' %}" alt="">
+          <b><p>Test 및 평가를 통한 개인별 맞춤 트레이닝 입니다.</p></b>          
+          <p>본인 신체의 기능적 움직임의 문제점을 파악하고 관절의 가동범위를 늘려주고, 코어트레이닝과 기능성트레이닝, 웨이트트레이닝을 진행합니다.</p>
+          <p>즐겨 하시는 스포츠 레저 (골프커디셔닝, 러닝 등)에 맞춤 트레이닝을 진행합니다.</p>
+          <p>다이어트프로그램(식단분석, cadio 트레이닝)을 진행합니다..</p>
+      </div>
+  </section>
+
+    </main>
+  </div> 
+  {% endblock %}

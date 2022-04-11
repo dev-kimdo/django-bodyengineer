@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'sites/style.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+  <div id="slideShow">
+    <div id="slides">
+      <img src="{% static 'sites/images/bodyengineer-photo-1.jpeg' %} " alt="be-photo1">
+      <img src="{% static 'sites/images/bodyengineer-photo-2.jpeg' %} " alt="be-photo2">
+      <img src="{% static 'sites/images/bodyengineer-photo-3.jpeg' %} " alt="be-photo3">
+    </div>
+  </div>
+
+  <div id="contents">
+    <div id="tabMenu">
+      <input type="radio" id="tab1" name="tabs" checked>
+      <label for="tab1">공지사항</label>
+      <!-- <input type="radio" id="tab2" name="tabs">
+      <label for="tab2">오시는 길</label>       -->
+      <div id="notice" class="tabContent">
+        <h2>공지사항 내용입니다.</h2>
+        <ul>
+          {% for post in posts %}
+          <li>
+            <a href=" {% url 'posts:detail' post.id %} ">{{post.title}}</a> 
+          </li>  
+          {% endfor %}
+        </ul>
+        
+        <!-- <ul>            
+          <li>[모집] 케틀벨 그룹수업 모집합니다.</li>
+          <li>[커피머신구매] 언제든 오셔서 한잔하고 가세요.</li>
+          <li>[모집] 서울둘레길 8코스 시작합니다.</li>
+          <li>안경 놓고 가신분 찾습니다.</li>
+          <li>고혈압에 대하여....</li>            
+        </ul> -->
+      </div>
+      <!-- <div id="Map" class="tabContent">
+        <h2>오시는 길</h2>
+        <ul>
+          <li><img src="{% static 'sites/images/지도.png' %} " alt="map"></li>                    
+        </ul>
+      </div>         -->
+    </div>
+      <div id="links">
+        <ul>
+          <li>
+            <a href="{% url 'schedule:schedule' %}">
+              <span id="quick-icon1"></span>
+              <p>Schedule</p>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'video:list' %}">
+              <span id="quick-icon2"></span>
+              <p>MyExercise</p>
+            </a>            
+          </li>
+          <li>
+            <a href="{% url 'sites:map' %}">
+              <span id="quick-icon3"></span>
+              <p>문의하기</p>
+            </a>            
+          </li>
+        </ul>
+      </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block jslink %}
+    <script src="{% static 'sites/slideshow.js' %}"></script>
+{% endblock %}

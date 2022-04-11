@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>3월 5일 월요일</h2>
+  <form method="GET" action="/schedule">
+  <table>
+    <thead>
+      <tr>
+        <th>
+          시간
+        </th>
+        <th>
+          회원명
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          7시
+        </td>
+        <td>
+          최유리
+        </td>
+      </tr>
+      <tr>
+        <td>
+          8시
+        </td>
+        <td>
+          {% if time == '8' %}
+            예약됨
+          {% endif %}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          9시
+        </td>
+        <td>
+          김도현
+        </td>
+      </tr>
+      <tr>
+        <td>
+          10시
+        </td>
+        <td>
+          {% if time == '10' %}
+            예약됨
+          {% endif %}          
+        </td>
+      </tr>
+      <tr>
+        <td>
+          11시
+        </td>
+        <td>
+          최유리
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <input type="submit" value="내 스케쥴로">
+  </form>  
+</body>
+</html>

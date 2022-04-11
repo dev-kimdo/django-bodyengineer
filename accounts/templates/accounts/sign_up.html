@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="signup-box">
+
+            <h1 class="signup-title">회원 가입</h1>
+
+            <form method="POST" action="{% url 'accounts:sign_up' %}">
+            {% csrf_token %}
+
+                <div class="id-input">
+                    <!-- <label class="form-label" for="username">아이디</label> -->
+                    <input class="form-control" id="username" name="username" type="text" placeholder="아이디">
+                </div>
+
+                <div class="password-input">
+                    <!-- <label for="password" class="form-label">비밀번호</label> -->
+                    <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호">
+                </div>
+
+                <div class="password-chk-input">
+                    <!-- <label for="password_check" class="form-label">비밀번호 확인</label> -->
+                    <input type="password" class="form-control" id="password_check" name="password_check" placeholder="비밀번호 확인">
+                </div>
+
+                <div class="email-input">
+                    <!-- <label class="form-label" for="email">이메일</label> -->
+                    <input class="form-control" id="email" name="email" type="email" placeholder="이메일">
+                </div>
+    <!-- 
+                <div class="phone-input">
+                    전화번호
+                    <select name="phone_1" id="phone_1">
+                        <option value="010">010</option>
+                        <option value="02">02</option>
+                    </select>
+                        -
+                        <input type="text" name="phone_2">
+                        -
+                        <input type="text" name="phone_3">
+                </div> -->
+
+                <div class="agree-box">
+                    <h4> 약관에 동의해주세요.</h4>
+                    <!-- <div class="all-agree">
+                        <ul class="clearfix">
+                            <li class="chk-all-btn">
+                                <input type="checkbox" name="chk-all" id="chk-all" class="chk-all"> 
+                            </li>
+                            <li> 모두 동의합니다.</li>
+                            <li id="all-agree-description">동의에는 필수 및 선택 목적(광고성 정보 수신 포함)에 대한 동의가 포함되어 있으며, 선택 목적의 동의를 거부하시는 경우에도 서비스 이용이 가능합니다.</li>
+                        </ul>
+                    </div> -->
+                    <div class="agree-chk-box">
+                        <ul class="clearfix">
+                            <li class="chk-btn">
+                                <input type="checkbox" name="chk1" id="chk" class="chk" value="1"> 
+                            </li>
+                            <li> [필수] 이용약관 동의</li>
+                            <textarea name="" id="" cols="30" rows="10">[정책과 규정] 
+
+    PT레슨은 수업료 전액이 지불된 후 부터 시작됩니다. 당 센터는 원래 예정되어 있던 강사가 훈련을 지도할 수 없을 경우 동등한 자격을 갖춘 다른 강사로 대체 할 수 있으며, 이경우에 한하여만 환불사유로 간주합니다. 회원님께서는 강습을 받으신 후 당일 운동프로그램 서명 란에 매 수업마다 서명을 하셔야 합니다. 각 PT레슨 지도 시간은 정시에 수업을 시작하여 50분간 진행합니다. 예약된 강습을 취소하실 경우는 반드시 24시간 전에 연락을 주셔야 하며, 미리 취소하지 않을 경우에는 1회 강습이 진행된 것으로 간주합니다. 계약 수강 기간 안에 수강을 완료하지 않은 경우라도 환불되거나 연장되지 않으며, 강습을 받을 수 없는 부득이한 경우에는 당 센터장의 승인을 거쳐 회원권 유효기간 내에 연장할 수 있습니다. (단 1회에 한함) 운동복은 지급되지 않으며, 수건은 사용할 수 있습니다. 실내 운동화는 챙기셔야 하며 사물함이 지급되나 운동 종료 후 1개월 이내에 찾아 가셔야하며, 1개월 이후에는 자체 폐기 처분 합니다. 레슨 지도 중에 자세교정 및 운동방법의 지도로 인한 신체접촉이 발생할 수 있습니다. 괜찮으시다면 동의 버튼을 체크해주세요.
+
+    [양도]
+
+    본 계약에 따른 PT레슨은 오로지 회원 자신만이 이용함을 원칙으로 하나, 부득이한 경우에는 당 센터장의 사전 승인 후, 소정의 양식에 따라 신청서를 작성한 후 1회 양도 할 수 있으며, 이에 따른 소정의 수수료(10.000원)가 부과됩니다. 양도 받은 PT 레슨은 재양도 및 환불이 되지 않습니다.
+
+    [해지]
+
+    이미 지불된 PT 레슨 비용은 환불되지 않으며 다른 회원권 계정잔고 보충에 사용될 수 없습니다. 단, 상병 또는 신체적 장애로 안한 진단, 기타 당 센터를 장기간 이용할 수 없는 경우에 한하여 당 센터에서 정한 소정의 신청서를 작성하고 관계 증빙서류를 첨부, 제출하여 해지할 수 있습니다.
+
+    ▪︎ 위의 사정으로 PT 레슨을 중도 해지할 경우 
+    총 레슨금액 - [위약금 10%(카드 결제 시 13%) + (정상요금 1회 가격 * 이용일 수) + 사은품(서비스세션)]
+    등록 레슨 환불금은 당 센터에서 정한 소정의 신청서 작성 후 익월 10일에 입금합니다.
+
+    ▪︎ 회원님께서는 다음 사항들에 대하여 인정 하셨으며 숙지하셨다는 의미로 아래의 서명, 동의함으로서 본 약정이 유효하게 됩니다.
+
+    ▪︎ 회원님께서는 현재 운동할 수 있는 적절한 육체적, 정신적 상태에 있으며 개인트레이닝을 받을수 없는 의학적 이유나 건강쇠약 또는 질병을 가지고 있지 않음을 분명히 밝히셨고 사실임을 인정하셨습니다. 또한 당 센터의 직원이 회원님의 육체적 상태와 능력과 관련해서 어떠한 의학적 충고도 하지 않았으며 그러한 충고를 할 수 없다는 것을 알고 있습니다. 회원님께서 건강상 또는 의학적인 우려나 질문이 있으시면 개인트레이닝 강습을 받기전에 반드시 전문의와 상담하셔야 합니다.
+
+    본 약정서에 기재되어 있지 아니한 사항에 대해서 당 센터는 어떤 약속이나 책임을 지지 않으며, 해당 약정서 이외의 어떠한 구두상 또는 서면상 약정은 효력이 없습니다. 당 센터에서 공식적으로 지급하지 않은 영양제품이나 약품에 대하여 직원이 어떠한 형태로든 의견을 말했다고 하더라도 직원의 그러한 의견표현은 당 센터로 부터 자격을 부여받아서 한 것이 아닙니다. 회원님께서 직원의 이러한 말을 믿고 영양제품이나 약품을 드셔서 발생하는 신체 혹은 정신상 불이익에 대하여 당 센터는 책임을 지지 않습니다.
+
+    개인 트레이닝 강습을 받는 도중 회원님이나 그 외의 사람이 사고를 유발할 경우, 상해의 위험을 가지고 있습니다. 이러한 위험이 발생할 수 있다는 것을 회원님께서는 인지하고 계시며, 회원님의 부주의 또는 다른회원의 행위로 인하여 회원님 개인의 신체 또는 정신에 어떠한 형태로든 상해가 발생하거나, 경제적 손실 또는 손상을 보게 되더라도 당 센터는 책임이 없다는 사실을 인지하시며 동의 합니다. 회원님의 과실로 인하여 센터 내에서 다른 회원이 상해를 입어서 발생하는 경제적 손실에 대하여 보상을 요구할 경우 당 센터가 아닌 회원님 본인이 손해배상청구와 관련된 일체의 책임을 지셔야하며 그러한 보상에 대하여 당 센터는 책임을 지지 않도록 할 의무가 있습니다.
+
+    본 계약서에 서명함으로써 개인강습 조건에 동의하며 고객(             )와 Personal Trainer(          )의 법적 구속력이 있는 계약 관계가 성립되는 것을 이해합니다. 회원님께서는 본 계약서를 서명하기 전 Personal Trainer(            )로 부터 충분한 설명을 들었으며, 개인강습을 위한 계약 내용을 이해했음을 (동의합니다.)
+
+                            </textarea>
+                        </ul>
+                    </div>
+                    <div class="agree-chk-box">
+                        <ul class="clearfix">
+                            <li class="chk-btn">
+                                <input type="checkbox" name="chk2" id="chk" class="chk" value="2"> 
+                            </li>
+                            <li> [필수] 개인정보 수집 및 이용에 대한 안내</li>
+                            <textarea name="" id="" cols="30" rows="10">
+    바디엔지니어 서비스(이하 '서비스')를 이용해 주셔서 감사합니다. 본 약관은 바디엔지니어 서비스의 이용과 관련하여 서비스를 제공하는 바디엔지니어와 이를 이용하는 바디엔지니어 서비스 회원(이하 '회원') 또는 비회원과의 관계를 설명하며, 아울러 여러분의 바디엔지니어 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
+                            </textarea>
+                        </ul>
+                    </div>
+                    <div class="agree-chk-box">
+                        <ul class="clearfix">
+                            <li class="chk-btn">
+                                <input type="checkbox" name="chk3" id="chk" class="chk" value="3"> 
+                            </li>
+                            <li> [필수] 개인정보 제3자 제공 동의</li>
+                            <textarea name="" id="" cols="30" rows="10">
+
+
+
+                            </textarea>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="signup-submit">
+                    <button class="btn-signup" type="submit"> 회원 가입</button>
+                    
+                    {% if error %}
+                    <div class="alert" id="alert">
+                        {{ error }}
+                    </div>
+                    {% endif %}
+                </div>  
+            </form>
+        </div>
+        
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+{% endblock %}
+
+{% block jslink %}
+<script src="https://kit.fontawesome.com/69318be22f.js" crossorigin="anonymous"></script>
+{% endblock %}
